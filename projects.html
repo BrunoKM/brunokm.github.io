@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="icon" href="images/tab_icon.png">
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bruno K.M. - Projects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="scribbler-global.css">
+    <link rel="stylesheet" href="scribbler-projects.css">
+    <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <!-- NAVIGATION MENU -->
+    <div class="top_container">
+      <div class="logo"><img src="images/logo.png"></div>
+      <nav>
+
+        <ul class="menu">
+          <!-- <div class="menu__item toggle"><span></span></div> -->
+          <li class="menu_item rec"><a href="index.html" class="link link--white">Home</a></li>
+          <li class="menu_item rec"><a href="projects.html" class="link link--active"> Projects</a></li>
+          <li class="menu_item"><a href="https://github.com/BrunoKM/" class="link link--white"><i class="fa fa-github"></i> Github</a></li>
+        </ul>
+      </nav>
+    </div>
+
+
+    <div class="wrapper">
+
+      <!-- Projects Navigation Side Menu -->
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Harvard Connectomics</li>
+          <li class="js-btn">CUMIN</li>
+          <!-- <li class="js-btn">Keybindings</li>
+          <li class="js-btn">Issues</li> -->
+        </ul>
+      </aside>
+
+      <article class="doc__content">
+        <section class="js-section">
+          <!-- HARVARD CONNECTOMICS PROJECT -->
+          <h3 class="section__title">Harvard Connectomics Network Analysis Project</h3>
+          <p>As an intern at the Visual Computing Group, I worked on graph analysis tools for connectomics; connectomics is defined as the production and study of comprehensive maps of connections within the nervous system. This field will hopefully eventually help us improve the state of the art machine learning methods by understanding how the brain overcomes their current limitations <a class="link link--dark" href="https://www.technologyreview.com/s/609070/inside-the-moonshot-effort-to-finally-figure-out-the-brain/" target="_blank">[link]</a>. My work included investigation of the methods for graph matching, graph kernels, graph convolutional networks and their application for graph edit distance estimation, as well as motif discovery.</p>
+
+<div class="projects_img"><img src="images/connectomics.jpg"> A picture of the segmented slice of rodent cortex.</div>
+
+<p>The overall contributions of the Harvard Visual Computing Group as part of the collaboration with Harvard's Centre for Brain Science are part of the overarching effort towards reverse-engineering the brain. For the past few years, the laboratory has been cutting and imaging the brain on nanometre scale with multi-beam electron microscopy, and developing systems for 3d reconstruction and segmentation of the image into individual neurons and synapses. The next step in the process is to create tools to study this data in order to determine what makes the brain process information the way it does; this is the part of the project that I was lucky enough to work on. </p>
+
+<p>One of the methods I was focusing on was <a class="link link--dark" href="https://en.wikipedia.org/wiki/Network_motif" target="_blank">network motif discovery</a>. Network motifs can be thought of as recurrent patterns of connections within a network such as that of synapses within the brain. They are particularly interesting within the context of connectomics, because brain motifs can often perform particular computational functions; for instance, the two motifs shown below are examples of a Max() operator and a regulator().</p>
+
+<div class="projects_img" style="margin-bottom: -20px;"><img src="images/brain-motifs.png"></div>
+
+<p>Brain Networks are particularly challenging for motif discovery analysis. For once, they are extremely large; Even just a cube of a rodent cortex with the size 1x1x1 mm already contains roughly 100,000 neurons, and 100,000,000 synapses - to map the whole brain which is just short of a trillion synapses would require highly efficient tools. Furthermore, each node that represents a neuron in the network can potentially have a large number of parameters that influence the function it performs, for instance whether it's excitatory or inhibitory.</p>
+
+<p>To alleviate these issues, we had to consider the goal of the analysis, and especially how to improve the motif discovery's exploratory aspect. In comparison to the traditional motif discovery approach, we were interested in a method that finds frequent patterns within the network while allowing for a small variation within those patterns. This would make the method significantly more robust for larger motifs, and more adaptable to networks with multiple edges such as the brain network, where edges represent the synapses connecting two neurons. </p>
+
+<div class="projects_img"><img style="width: 60%;" src="images/motif-discovery-abstract.png"></div>
+
+<p>One of the key elements that I was focusing on during my internship was methods for graph comparison; in particular, how to efficiently evaluate whether two patterns are similar. This would allow us to cluster all the patterns into groups of similar motifs, and get information about the statistical frequency of each.</p>
+
+<p>Due to recent developments in neural networks that operate on graphs, I investigated whether these models could be applied for sub-graph or pattern similarity estimation. These methods have seen high success in for instance social network analysis scenarios <a class="link link--dark" href="http://snap.stanford.edu/graphsage/" target="_blank">[link]</a>, but needed to be heavily adapted to this fundamentally different task.</p>
+<div style="text-align: center; margin-top:30px">
+<a style="text-align: center; margin-right: 10px;" href="https://github.com/BrunoKM/r" class="link link--dark"><i class="fa fa-github"></i> Project Code on GitHub</a> | <a style="text-align: center;margin-left: 10px;" href="https://vcg.seas.harvard.edu/projects" class="link link--dark">Link to Group's Website</a></div>
+
+        </section>
+        <!-- CUMIN -->
+        <section class="js-section">
+          <h3 class="section__title">Cambridge University Machine Intelligence Network</h3>
+          <p>As a team of 4 Cambridge undergraduates, we have founded the CU Machine Intelligence Network. Our aim is to become a space for Cambridge students to collaborate with others on machine learning projects, provide the tools necessary to do so, run workshops for those who are just getting started, and invite interesting speakers from the industry and the academia. As of now, there is no other society that allows undergraduates to pursue their machine learning interest together, and we are hoping our student society will contribute to greater activity in that domain within the university.</p>
+        </section>
+      </article>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer"><span style="font-weight: bolder;">Email: </span><span style="font-weight: lighter;">bkmlodozeniec at gmail<i>.</i>com</span>
+    </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>

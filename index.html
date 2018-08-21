@@ -1,18 +1,137 @@
----
-layout: default
----
+<!doctype html>
+<html>
+  <head>
+      <link rel="icon" href="images/tab_icon.png">
+      <meta charset="utf-8">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bruno K.M.</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+      <link rel="stylesheet" href="scribbler-global.css">
+      <link rel="stylesheet" href="scribbler-landing.css">
+      <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <div class="top_container">
+      <!-- NAVIGATION MENU -->
+      <div class="logo"><img src="images/logo.png"></div>
+    <nav>
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
+      <ul class="menu">
+        <!-- <div class="menu__item toggle"><span></span></div> -->
+        <li class="menu_item rec"><a href="index.html" class="link--active">Home</a></li>
+        <li class="menu_item rec"><a href="projects.html" class="link link--white"> Projects</a></li>
+        <li class="menu_item"><a href="https://github.com/BrunoKM/" class="link link--white"><i class="fa fa-github"></i> Github</a></li>
+      </ul>
+    </nav>
+    <!-- BIO PART -->
+    <div class="hero">
+      <section class="mini_bio">
+        <div class="picture_self">
+          <img src="https://avatars0.githubusercontent.com/u/22356384?s=400&amp;u=e898938c495ba9fa8a45c51959972ecba60d15d3&amp;v=4" class=avatar>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+        </div>
+        <div class="bio">
+            <h1 class="hero__title">Bruno K. Mlodozeniec</h1>
+            <p class="hero__description">Machine Intelligence | Information Engineering Student</p>
+            <p class="hero__bio_section1">I am a third year engineering student at the University of Cambridge. After studying a curriculum encompassing a very diverse range of engineering topics in my first two years, I want to pursue a career in Artificial Intelligence and Information Engineering. I completed the first and second years of my degree with a "1st class", and ranked in the top 8% of my year, with best results in Mathematics and Electronics (including Computer Engineering). With the rise of deep learning over the recent years, and the wave of innovation in the most exciting of machine learning applications such as self-driving cars or brain connectome segementation, I want to apply the analytical skills I have developed during my studies to the forefront of this technological movement.</p>
 
-      <div class="entry">
-        {{ post.excerpt }}
+        </div>
+      </section>
+    </div>
+    <!-- End of bio -->
+    </div>
+    <!-- More detailed bio -->
+    <div class="wrapper">
+      <!-- Some links to relevant pages and resume -->
+      <div style='padding-top: 10px;'>
+        <ul class="third_party_links">
+          <li class="third_party_item"><a href="https://www.linkedin.com/in/bkmlodozeniec/" class="link--blue"><i class="fa fa-linkedin"></i> ://bkmlodozeniec</a></li>
+          <li class="third_party_item"><a href="https://github.com/BrunoKM/" class="link--blue"><i class="fa fa-github"></i> Github</a></li>
+          <li class="third_party_item"><a href="resume.pdf" class="link--blue"><i class="fa fa-book"></i> Resume</a></li>
+
+        </ul>
       </div>
+      <!-- EDUCATION section -->
+      <div class="education">
+        <h3 class="section__title">Education</h3>
+        <!-- Cambridge -->
+        <div class="experience__item">
+          <div class="experience__pic">
+            <img src="images/cambridge-logo.svg">
+          </div>
+          <div class="experience__meta">
+            <h4 class="experience__main_title">University of Cambridge</h4>
+            <h4 class="experience__title">M.Eng. in Information Engineering</h4>
+            <small style="font-size: 13px;" class="experience__date">2016 - 2020</small>
+            <small style="font-size: 13px; color: rgb(220, 220, 220);" class="experience__date">(current)</small>
+          </div>
+          <div class="experience__detail">
+            <ul>
+              <li>Woring towards a Masters degree in Information Engineering with particular focus on machine intelligence.</li>
+              <li>Achieved a first class performance on exams in both my 1st and 2nd year.</li>
+              <li>Active in multiple societies including Machine Intelligence Network which I've co-founded.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div style="margin: 100px;"></div>
+      <!-- <div class="callout">
+        <p>Read our documentation for advanced keybindings and customization</p>
+        <a href="doc.html" class="button--primary">Documentation</a>
+      </div> -->
+    </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+    <!-- Experience Section -->
+    <div class="experience">
+      <div class="wrapper">
+        <h3 class="section__title">Experience</h3>
+
+        <!-- Harvard -->
+        <div class="experience__item">
+          <div class="experience__pic">
+            <img src="images/harvard-logo.png">
+          </div>
+          <div class="experience__meta">
+            <h4 class="experience__main_title">Harvard SEAS Internship</h4>
+            <h4 class="experience__title">Connectomics Research</h4>
+            <small style="font-size: 13px;" class="experience__date">07/2018 - 08/2018</small>
+          </div>
+          <div class="experience__detail">
+            <ul>
+              <li>Worked on developing methods for statistical analysis of networks representing the brain connectome.</li>
+              <li>Prototyped new deep learning models for the purpose of identyfing repeating structural components within the graph (graph motifs).</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Cisco -->
+        <div class="experience__item">
+          <div class="experience__pic">
+            <img src="images/cisco-logo.png">
+          </div>
+          <div class="experience__meta">
+            <h4 class="experience__main_title">Cisco Machine Learning Internship</h4>
+            <h4 class="experience__title">Cisco Webex Teams</h4>
+            <small style="font-size: 13px;" class="experience__date">07/2017 - 08/2017</small>
+          </div>
+          <div class="experience__detail">
+            <ul>
+              <li>Worked on wake-word detection for the Cisco Webex range of products.</li>
+              <li>Trained and applied multiple deep learning architectures such as CNNs and RNNs to the problem of keyword spotting.</li>
+              <li>Developed a Python routine for training, validating and testing keyword spotting models with efficient off-GPU example queuing.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="experience__callout">
+          <a href="#" class="button--secondary">Something about more here</a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer"><span style="font-weight: bolder;">Email: </span><span style="font-weight: lighter;">bkmlodozeniec at gmail<i>.</i>com</span>
+    </footer>
+  </body>
+</html>

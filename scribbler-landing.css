@@ -1,0 +1,307 @@
+.top_container {
+  background: url("/images/background.png");
+  background-position: 50% 0%;
+  /* height = 100px; */
+  background-size: cover;
+  margin-bottom: 0px;
+}
+
+
+
+/* .logo img:hover {
+  position: absolute;
+  height: 41px;
+  padding-top: 7px;
+  transition: all .3s ease-out;
+  padding-left: 29px;
+} */
+
+.nav_bar {
+  margin: auto
+  horisontal-align: baseline;
+  padding-left: 0px;
+}
+/* hero section */
+
+.mini_bio {
+    max-width: 70%;
+    margin: auto;
+    margin-bottom: 0px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.09);
+    box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.03);
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.picture_self {
+  /* display: block; */
+    padding-left: 5px;
+    padding-top: 10px;
+    width: 240px;
+    float: left;
+
+}
+
+img.avatar {
+  width:200px;
+  border-radius: 5px;
+    box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.02);
+}
+
+.bio {
+  /* display: block; */
+  max-width: 60%
+  float: right;
+  margin-left: 240px;
+  margin-bottom: 30px;
+  /* clear:both; */
+  animation: fadeUp 1.2s;
+}
+
+.hero {
+  text-align: left;
+  background-color: var(--bg-color);
+  padding: 3rem 0 5rem 0;
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.hero__title {
+  font-weight: lighter;
+  color: var(--primary-color);
+}
+
+.hero__description {
+  margin: -1rem auto 2rem auto;
+}
+
+/* .hero__terminal {
+  width: 100%;
+  /* margin: -11rem auto 3rem auto; */
+  text-align: left;
+  padding: 0 1rem;
+  /* border-radius: 8px; */
+  /* background-color: #232323; */
+  min-height: 285px;
+
+} */
+
+/* .hero__terminal pre {
+  white-space: pre-line;
+  margin: 0;
+  border-radius: 10px;
+  /* padding-top: ; */
+} */
+
+.third_party_links {
+  text-align: center;
+  list-style-type: none;
+  /* margin: 40px; */
+  overflow: hidden;
+  padding-top: 0rem;
+}
+
+.third_party_item {
+  display:inline-block;
+  font-family: Space Mono, SFMono-Regular, Menlo,Monaco, Consolas, Liberation Mono, Courier New, monospace;
+  font-size: 13px;
+  width: 32%;
+}
+
+
+.third_party_item a {
+    position: relative;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin: auto;
+}
+
+/* feature section */
+.feature {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.feature__item {
+  max-width: calc(33% - 20px);
+  margin: 0 20px 0 0;
+}
+
+.feature__item .section__title {
+  margin-bottom: 0;
+}
+
+.feature__item p {
+  margin-top: 0.5rem;
+}
+
+/* keybinding section */
+.keybinding {
+  margin-top: 3rem;
+  display: flex;
+}
+
+.keybinding__detail {
+  position: relative;
+  border: 1px solid var(--code-bg-color);
+  flex-basis: 50%;
+  padding: 2rem 1rem 1rem 1rem;
+  list-style: none;
+  line-height: 2rem;
+}
+
+.keybinding__detail:first-child {
+  text-align: right;
+  padding-right: 1rem;
+}
+
+.keybinding__detail:last-child {
+  padding-left: 1rem;
+  margin-left: -1px;
+}
+
+.keybinding__detail:first-child .keybinding__title {
+  position: absolute;
+  right: 0.5rem;
+  top: -2rem;
+  background-color: white;
+  padding: 0 0.5rem;
+}
+
+.keybinding__detail:last-child .keybinding__title {
+  position: absolute;
+  left: 0.5rem;
+  top: -2rem;
+  background-color: white;
+  padding: 0 0.5rem;
+}
+
+.keybinding__label {
+  background: var(--white-color);
+  border: 1px solid var(--light-gray-color);
+  box-shadow: 0 1px 0 0 var(--medium-gray-color);
+  border-radius: 3px;
+  font-family: Courier;
+  font-size: 0.7rem;
+  color: var(--dark-gray-color);
+  padding: 3px 3px 1px 3px;
+  vertical-align: middle;
+}
+
+/* callout section */
+.callout {
+  text-align: center;
+  padding: 1rem 0 3rem 0;
+}
+
+.callout .button--primary {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* experience section */
+.experience {
+  background-color: rgba(248, 248, 248, 1.0);
+  padding: 2rem 0;
+}
+
+.experience__item {
+  display: flex;
+  margin-bottom: 40px;
+}
+
+.experience__pic {
+  flex-basis: 130px;
+  min-width: 125px;
+}
+/* .logo{
+  position: absolute;
+  height: 0px;
+} */
+.experience__pic img {
+  padding-top: 15px;
+  position: absolute;
+  padding-right: 20px;
+  width: 100px;
+}
+
+.experience__meta {
+  flex-basis: 30%;
+  min-width: 30%;
+  /* width: 60%; */
+}
+
+.experience__meta small {
+  color: var(--primary-color-light);
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.experience__main_title{
+  /* text-align: center; */
+  margin-bottom: 0;
+  margin-top:10px;
+  /* margin-left: -10%; */
+  font-size: 18px;
+  font-weight: lighter;
+}
+.experience__title {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.experience__detail{
+  /* position: absolute; */
+  /* width: 100px; */
+  /* background-color: red; */
+  /* flex-basis: 50%; */
+  margin: auto;
+}
+
+.experience__callout {
+  margin: 3rem auto 2rem auto;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .hero__bio_section1 {
+    display: none;
+  }
+  .top_container {
+    background: none;
+    background-color: var(--bg-color)
+  };
+  .third_party_links {
+    align-items: center;
+    text-align: ce#center;
+  }
+  .third_party_item {
+    /* text-align: center; */
+    display: block;
+    margin-top: 20px;
+    width: 100%
+  }
+  /* .tab__container > ul {
+    right: auto;
+    left: 0;
+    padding-left: 0;
+  }
+  .tab__container .code {
+    margin-top: 2rem;
+  }
+  .feature, .keybinding, .experience__item {
+    flex-direction: column;
+  }
+  .feature__item {
+    max-width: 100%;
+    margin: 0;
+  }
+  .keybinding {
+    font-size: 0.8rem;
+  } */
+}
