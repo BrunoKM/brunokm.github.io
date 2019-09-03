@@ -27,7 +27,7 @@ html, body {
   top: 0;
   left: 0;
   bottom: 0;
-  width: 28%;
+  width: 24%;
   background-color: var(--bg-color);
   z-index: -1;
 }
@@ -73,8 +73,8 @@ html, body {
 }
 
 .doc__content {
-  /* flex-basis: 75%; */
-  max-width: 75%;
+  /* flex-basis: 80%; */
+  max-width: 79%;
   padding: 0 0 5rem 1rem;
   margin-top: 2rem;
 }
@@ -88,13 +88,38 @@ html, body {
 }
 .projects_img img {
   border-radius: 3px;
-  width: 98%;
+  width: 100%;
 }
 .project_img p {
   margin-top: -;
   text-align: center;
 
 }
+
+.plotSelectionButtons li {
+    display: inline;
+    float: left;
+    width: 30%
+
+}
+.plotSelectionButtons li:hover {
+  color: var(--accent-color);
+  cursor: pointer;
+  transition: color .4s ease-in-out;
+}
+
+.plotSelectionButtons .selected {
+  color: var(--accent-color-darker);
+  position: relative;
+}
+
+.plotSelectionButtons ul {
+  list-style: none;
+  margin-left: 5%;
+  line-height: 1.8;
+}
+
+
 
 @media (max-width: 850px) {
   .doc__nav {

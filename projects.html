@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="scribbler-global.css">
     <link rel="stylesheet" href="scribbler-projects.css">
     <link rel="author" href="humans.txt">
+
+    <script type="text/javascript" src="./lib/jquery-3.4.1.min.js"></script>
+    <script src="json/path.json" id="ensembleProbsJson"></script>
+
 </head>
 <body>
 <!-- NAVIGATION MENU -->
@@ -34,15 +38,56 @@
     <!-- Projects Navigation Side Menu -->
     <aside class="doc__nav">
         <ul>
-            <li class="js-btn selected">Harvard Connectomics</li>
-            <li class="js-btn">CUMIN</li>
+          <li class="js-btn selected">EnDD</li>
+          <li class="js-btn">Harvard Connectomics</li>
+          <li class="js-btn">CUMIN</li>
             <!-- <li class="js-btn">Keybindings</li>
             <li class="js-btn">Issues</li> -->
         </ul>
     </aside>
 
     <article class="doc__content">
+        <!-- Ensemble Distribution Distillation -->
         <section class="js-section">
+            <h3 class="section__title">Ensemble Distribution Distillation</h3>
+            <p>Neural Networks (NNs) have emerged as the state of the art approach to a variety of machine learning tasks, however, they tend to make over-confident predictions and, until recently, have been unable to provide measures of uncertainty in their predictions. As they are increasingly being applied to safety-critical tasks such as medical diagnosis, biometric identification and self-driving cars, estimating uncertainty in model’s predictions is essential, as it enables the safety of an AI system to be improved by acting on the predictions in an informed manner.</p>
+
+            <p>Ensembles of models have been empirically shown to yield robust measures of uncertainty, and are capable of distinguishing between different forms of uncertainty. They also often yield improvements in system performance. Ensembles do, however, come at a computational and memory cost which may be prohibitive for many applications. There has been a lot of work done on the distillation of an ensemble into a single model and such approaches decrease computational cost and allow a single model to achieve an accuracy comparable to that of an ensemble. However, in these approaches, information about the diversity of the ensemble, which can yield estimates of different forms of uncertainty, is lost.</p>
+
+            <p>Recently, a new class of models called <i>Prior Networks</i> has been proposed, which allows a single neural network to explicitly model a distribution over output distributions. <a
+                    class="link link--dark"
+                    href="https://arxiv.org/abs/1905.00076"
+                    target="_blank">In this paper</a>, we combined Ensemble Distillation and Prior Networks to yield a novel approach called <i>Ensemble Distribution Distillation</i> (EnDD) in which the distribution of an ensemble is distilled into a single Prior Network. This enables a single model to retain both the improved classification performance as well as measures of diversity of the ensemble.</p>
+
+            <p>Ensembles of models allow total uncertainty in predictions to be decomposed into <i>knowledge uncertainty</i> and <i>data uncertainty</i>, where data uncertainty is the irreducible uncertainty that arises due to the complexity and noise in the data, whereas knowledge uncertainty (epistemic uncertainty) is uncertainty due to a lack of understanding of the model regarding the input. It appears due to limited data and knowledge.</p>
+
+            <p>To illustrate this property of neural network (NN) ensembles, an ensemble of 20 deep NNs has been trained from different random initialisations (with different random order during SGD training) on a 3-class toy dataset shown below. Each colour in the plot corresponds to one of the 3 classes.</p>
+            <div class="projects_img"><img style="width: 44%;" src="images/dataset_spiral.png" id="dataset_spiral"></div>
+
+            <p>The 2D dimensionality of the dataset suits itself nicely for visualisation. The figure below shows the total, knowledge and data uncertainties (left), and interactively displays the predictions from each of the 20 models from the ensemble as a point on a simplex (rights). For example, the point residing in a corner of the simplex implies 100% confidence in that class, whereas the point being in the middle of the simplex represents the model being 33.3…% confident in each of the classes.</p>
+
+            <!-- Fancy UCNERTAINTY FIGURE -->
+            <div id='uncertainty_selection_buttons' class='plotSelectionButtons'>
+              <ul>
+                <li class='unc-img-selector-button selected' id='tot_unc_button'>Total Uncertainty</li>
+                <li class='unc-img-selector-button' id='data_unc_button'>Data Uncertainty</li>
+                <li class='unc-img-selector-button' id='know_unc_button'>Knowledge Uncertainty</li>
+              </ul>
+            </div>
+            <div id="unc_figure" style="
+              align-items: left">
+                <img src="images/total_uncertainty.png" id="uncertainty_pic" style="border-radius: 4px; width:40%; margin-left: 4%; margin-right: 4%;">
+                <canvas id="canvas" style="width:40%"></canvas>
+            </div>
+
+            <p>Distiguinshing between sources of uncertainty is important, as in certain machine learning applications it may be necessary to know not only whether the model is uncertain, but also why. For instance, in active learning, additional training data should be collected from regions with high knowledge uncertainty, but not data uncertainty. Similarly, for a regular model, increased knowledge uncertainty may signal to the developers that a distributional shift has occurred and an updated model is due for deployment.</p>
+            <p>For a more detailed overview see the <a
+                    class="link link--dark"
+                    href="https://arxiv.org/abs/1905.00076"
+                    target="_blank">Ensemble Distribution Distillation</a> paper.</p>
+        </section>
+        <section class="js-section">
+
             <!-- HARVARD CONNECTOMICS PROJECT -->
             <h3 class="section__title">Harvard Connectomics Network Analysis Project</h3>
             <p>As an intern at Harvard, I got to work alongside the researchers at the Visual Computing Group (VCG) on
@@ -144,8 +189,10 @@
 <footer class="footer"><span style="font-weight: bolder;">Email: </span><span
         style="font-weight: lighter;">bk<span>m</span>lodoz<span>eni</span>e<span>c at gmail<i>.</i>co</span>m</span>
 </footer>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <script src="scribbler.js"></script>
+<script type="text/javascript" src="js/unc_figure.js">
+</script>
 </body>
 </html>

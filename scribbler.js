@@ -1,4 +1,5 @@
 // utilities
+
 var get = function (selector, scope) {
   scope = scope ? scope : document;
   return scope.querySelector(selector);
@@ -83,16 +84,6 @@ if (btns.length && sections.length > 0) {
 
   btns[2].addEventListener('click', function (event) {
     smoothScrollTo(sections[2], event);
-  });
-
-  btns[3].addEventListener('click', function (event) {
-    smoothScrollTo(sections[3], event);
-  });
-  btns[4].addEventListener('click', function (event) {
-    smoothScrollTo(sections[3], event);
-  });
-  btns[5].addEventListener('click', function (event) {
-    smoothScrollTo(sections[3], event);
   });
 }
 

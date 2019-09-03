@@ -242,27 +242,6 @@ nav {
     text-decoration: none;
 }
 
-/* .rec a::before {
-  position: absolute;
-  content: "";
-  width: 12px;
-  height: 12px;
-  background-color: rgba(255, 255, 255, 0);
-  left: 20px;
-  top: 18px;
-  transition: all 0.3s ease-out;
-}
-
-.rec a:hover::before {
-  background-color: rgba(255, 255, 255, 0.3);
-  transform: rotate(45deg);
-  transition: all 0.3s ease-out;
-} */
-
-
-/* .menu_item:hover {
-  transition: all .3s ease-out;
-  transform: translate3D(-1px, 0px, 0); */
 }
 .menu__item_active {
   float: left;
