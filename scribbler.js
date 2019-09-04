@@ -102,17 +102,17 @@ if (btns.length && sections.length > 0) {
 
 // responsive navigation
 var topNav = get('.menu');
-var icon = get('.toggle');
+// var icon = get('.toggle');
 
 window.addEventListener('load', function(){
   function showNav() {
     if (topNav.className === 'menu') {
       topNav.className += ' responsive';
-      icon.className += ' open';
+      // icon.className += ' open';
     } else {
       topNav.className = 'menu';
-      icon.classList.remove('open');
+      // icon.classList.remove('open');
     }
   }
-  icon.addEventListener('click', showNav);
+  // icon.addEventListener('click', showNav);
 });

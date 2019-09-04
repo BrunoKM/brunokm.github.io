@@ -14,6 +14,8 @@ html, body {
 .wrapper {
   display: flex;
   flex-grow: 1;
+  margin-left: 10%;
+  margin-right:10%;
 }
 
 .js-section {
@@ -36,6 +38,7 @@ html, body {
   flex-basis: 25%;
   font-weight: 200;
   margin-left: 0;
+  float: left;
 }
 
 .doc__nav ul {
@@ -75,8 +78,11 @@ html, body {
 .doc__content {
   /* flex-basis: 80%; */
   max-width: 79%;
-  padding: 0 0 5rem 1rem;
-  margin-top: 2rem;
+  padding-left: 2.4rem;
+  padding-bottom:1rem;
+  padding-top: 0.5rem;
+  padding-right: 0rem;
+  margin-top: 1.3rem;
 }
 
 .projects_img {
@@ -105,7 +111,7 @@ html, body {
 .plotSelectionButtons li:hover {
   color: var(--accent-color);
   cursor: pointer;
-  transition: color .4s ease-in-out;
+  transition: color .2s ease-in-out;
 }
 
 .plotSelectionButtons .selected {
@@ -121,7 +127,7 @@ html, body {
 
 
 
-@media (max-width: 850px) {
+@media (max-width: 860px) {
   .doc__nav {
     display: none;
   }

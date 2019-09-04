@@ -7,6 +7,24 @@ var totUncSrc = 'images/total_uncertainty.png';
 var dataUncSrc = 'images/data_uncertainty.png';
 var knowUncSrc = 'images/knowledge_uncertainty.png';
 
+function setActiveUncTab(event) {
+  // remove all active tab classes
+  totUncButton.classList.remove('selected');
+  dataUncButton.classList.remove('selected');
+  knowUncButton.classList.remove('selected');
+  event.target.classList.add('selected');
+}
+
+totUncButton.addEventListener('click', function (event) {
+    setActiveUncTab(event);
+});
+dataUncButton.addEventListener('click', function (event) {
+    setActiveUncTab(event);
+});
+knowUncButton.addEventListener('click', function (event) {
+    setActiveUncTab(event);
+});
+
 
 totUncButton.onclick = function()
 {
