@@ -8,57 +8,88 @@
 
 
 .nav_bar {
-  margin: auto
-  horisontal-align: baseline;
+  margin: auto;
+  /* horizontal-align: baseline; */
   padding-left: 0px;
 }
 /* hero section */
-
-.mini_bio {
-    max-width: 70%;
-    margin: auto;
-    margin-bottom: 0px;
-    padding: 10px;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.09);
-    box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.03);
-    content: "";
-    display: table;
-    clear: both;
+.hero {
+  background-color: var(--bg-color);
+  /* padding: 3rem 0 5rem 0; */
+  content: "";
+  display: table;
+  clear: both;
 }
 
+
+.mini_bio {
+    /* content: ""; */
+    /* display: table; */
+    /* clear: both; */
+  margin-bottom: 10px;
+}
+
+/* Frame containing the picture and text in the bio */
+/* Ensures they align vertically if screen size is too narrow */
+.hero_frame {
+  display: table;
+  width: 70%;
+  min-width: 750px;
+  margin: 10px auto;
+
+  border-radius: 8px;
+  border-color: rgba(0, 0, 0, 0.02);
+  border-width: 5px;
+  border-style: solid;
+  background-color: rgba(255, 255, 255, 0.702);
+  box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.03);
+
+  /* flex-flow:row wrap; */
+}
+
+/* Clear floats after the columns */
+.hero_frame.after {
+  /* content: ""; */
+  display: table;
+  clear: both;
+}
+
+
+
 .picture_self {
-  /* display: block; */
-    overflow: hidden;
-    padding-left: 5px;
-    padding-top: 10px;
-    width: 240px;
-    float: left;
+  float: left;
+  width: 30%;
+  padding: 10px;
+    /* flex: 1;
+    float: left; */
+    margin-top: 20px;
+    /* margin-left: 10px;
+    margin-right: 20px; */
 }
 
 img.avatar {
   width:200px;
+  /* margin: 0px; */
+  padding: 0px;
   border-radius: 5px;
-    box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.02);
+  box-shadow: 0px 12px 36.8px 9.2px rgba(0, 0, 0, 0.02);
 }
 
 .bio {
+  float: left;
+  width: 70%;
+  padding: 10px;
   /* display: block; */
-  max-width: 60%
-  float: right;
-  margin-left: 240px;
-  margin-bottom: 30px;
+  /* vertical-align: middle; */
+  /* display: table-cell; */
   /* clear:both; */
-  animation: fadeUp 1.2s;
-}
-
-.hero {
+  /* max-width:65%; */
+  /* float: right; */
+  /* margin-left: 10px;
+  margin-right: 10px; */
+  /* overflow:hidden; */
   text-align: left;
-  background-color: var(--bg-color);
-  padding: 3rem 0 5rem 0;
-  content: "";
-  display: table;
-  clear: both;
+  word-wrap: break-word;
 }
 
 .hero__title {
@@ -67,7 +98,7 @@ img.avatar {
 }
 
 .hero__description {
-  margin: -1rem auto 2rem auto;
+  /* margin: -1rem auto 2rem auto; */
 }
 
 .third_party_links {
@@ -243,16 +274,16 @@ img.avatar {
 }
 
 @media (max-width: 750px) {
-  .hero__bio_section1 {
+  /* .hero__bio_section1 {
     display: none;
-  }
-  .top_container {
+  } */
+  /* .top_container {
     background: none;
     background-color: var(--bg-color)
-  };
+  }; */
   .third_party_links {
     align-items: center;
-    text-align: ce#center;
+    text-align: center;
   }
   .third_party_item {
     /* text-align: center; */
@@ -261,4 +292,74 @@ img.avatar {
     width: 100%
   }
 
+  /* Experience items */
+  .experience__item {
+    display: block;
+    margin: auto;
+  /* flex-basis: 100%; */
+    /* margin-bottom: 40px; */
+  }
+
+  .experience__pic {
+    /* display: inline; */
+  /* flex-basis: 100%; */
+    /* flex-basis:auto; */
+    display: none;
+    /* width: 100%; */
+    /* min-width: 125px; */
+    /* float: left; */
+  }
+  .experience__detail{
+    /* position: absolute; */
+    /* width: 100px; */
+    /* background-color: red; */
+    /* display: inline; */
+    width: 100%;
+    /* float: left; */
+    margin: auto;
+  /* flex-basis: 100%; */
+  word-wrap: break-word
+  }
+
+  .experience__meta {
+    /* display: inline; */
+    width: 100%;
+    /* width: 60%; */
+  }
+}
+
+@media (max-width: 750px) {
+  /* Make the bio picture and text vertically aligned. */
+  .hero_frame {
+    /* display: auto; */
+    width: 100%;
+    min-width: auto;
+    /* margin: 80px; */
+    /* align-items: center;
+    display: inline; */
+  }
+  .picture_self {
+    width: 100%;
+    min-width: 100%;
+    /* margin: 0 auto; */
+    /* float:left;  */
+    /* display: relative; */
+    /* margin: 0 auto; */
+    /* padding: 0 auto; */
+    /* max-width: 100%; */
+  }
+  img.avatar {
+    /* margin: 0 auto; */
+    display: block;
+    margin: auto;
+  }
+  .hero__title {
+    text-align: center;
+  }
+  .bio {
+    /* margin: 0 auto; */
+    width: 100%;
+    min-width: 100%;
+    /* max-width: 100%; */
+  }
 }
