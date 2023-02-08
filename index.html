@@ -1,215 +1,336 @@
 <!doctype html>
 <html>
-<head>
-    <link rel="icon" href="images/tab_icon.png">
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bruno K. Mlodozeniec</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
-    <link rel="stylesheet" href="scribbler-global.css">
-    <link rel="stylesheet" href="scribbler-landing.css">
-    <script type="text/javascript" src="./lib/jquery-3.4.1.min.js"></script>
-</head>
-<body>
-<div class="top_container">
-    <!-- NAVIGATION MENU -->
-    <nav>
 
-        <ul class="menu">
-            <!-- <div class="menu__item toggle"><span></span></div> -->
-            <li class="menu_item rec"><a href="index.html" class="link link--active">Home</a></li>
-            <li class="menu_item rec"><a href="blog.html" class="link link--white">Blog</a></li>
-            <li class="menu_item rec"><a href="projects.html" class="link link--white">Projects</a></li>
-            <li class="menu_item"><a href="https://github.com/BrunoKM/" class="link link--white"><i
-                    class="fa fa-github"></i> Github</a></li>
-            <li class="menu_item"><a href="https://twitter.com/BMlodozeniec" class="link link--white"><i
-                    class="fa fa-twitter"></i> Twitter</a></li>
-        </ul>
-    </nav>
-    <!-- BIO PART -->
-    <div class="hero">
-        <section class="mini_bio">
-            <div class="hero_frame">
-                <div class="picture_self">
-                    <img src="https://avatars0.githubusercontent.com/u/22356384?s=400&amp;u=e898938c495ba9fa8a45c51959972ecba60d15d3&amp;v=4"
-                        class=avatar>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <title>Bruno K. Mlodozeniec</title>
+    <link rel="icon" href="images/tab_icon.svg">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <meta charset="utf-8">
+    <!-- <meta name="description" content=""> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/railscasts.min.css">
+    <link rel="stylesheet" href="scribbler-global.css">
+    <link rel="stylesheet" href="scribbler-landing.css"> -->
+    <!-- <script type="text/javascript" src="./lib/jquery-3.4.1.min.js"></script> -->
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <article class="pa3 pa3-ns">
+        <section class="mw7 center">
+            <!-- <div class="mw8 center"> -->
+            <div class="cf">
+                <div class="fl w-100 w-30-ns ph2 pt3-ns">
+                    <div class="cf">
+                        <div class="fl w-90 pr0 mr0">
+                            <div class="avatar crop">
+                            </div>
+
+                        </div>
+                        <div class="fl w-10 ml0 pl0">
+                            <div class="asciiart avatar crop-ascii code">
+                                <code class="fw9">
+                                    <pre class="mt0">
+@classmethod
+def _marginal_log_likelihood(
+█▘  cls,
+██  bias_var:▚float,
+███▘noise_var: float,
+█▚  true_mark_var: float,
+██▝ true_mark_mean: float,
+█ ▞ assessor_ids: np.ndarray,
+███ script_ids: np.ndarray,
+█▞▗ assessor_marks: np.ndarray,
+) -> float:
+█▛  # Remove the mean from marks
+██▚ marks_normalized = assessor_marks - true_mark_mean
+███▘# Calculate the covariance matrix
+▚█▘ K = cls._assessors_mark_covariance(
+█▘      script_ids=script_ids,
+███▛    assessor_ids=assessor_ids,
+███▚█▚  true_mark_var=true_mark_var,
+███▖    bias_var=bias_var,
+█▚    ▚ noise_var=noise_var,
+███▖)
+▙▞  # Use GPy positive definite inverse.
+█▙█▖Kinv, L, Li, logdet = GPy.util.linalg.pdinv(K)
+██▞ # Calculate the marginal log-likelihood
+█▖  mah_dist = np.dot(np.dot(marks_normalized.T, Kinv), marks_normalized)
+███▚mah_dist = mah_dist[0, 0]  # The results of dots products is an array with shape [1, 1]
+█ ▗ ll = -0.5 * (logdet + mah_dist + marks_normalized.shape[0] * np.log(2 * np.pi))
+▛▗  return ll
+███▚█▚
+▙▞ 
+</pre>
+</code>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="bio">
-                    <h1 class="hero__title">Bruno Kacper Mlodozeniec</h1>
-                    <!-- <p class="hero__description">Microsoft AI Resident | MEng in Information and Computer Engineering - University of Cambridge</p> -->
-                    <p class="hero__description">AI Resident at Microsoft Research Cambridge.  Formerly an Information and Computer Engineering (MEng) student at University of Cambridge. I have previously worked on uncertainty in deep learning, unsupervised learning, probabilistic modelling and causality.
+                <div class="fl w-100 w-70-ns ph2 pl3-ns" style="font-size: 1.1em;">
+                    <p class="" style="letter-spacing: 0.02em; font-size: 1.1em">
+                        I'm <span class="fw6 ttu">Bruno Mlodozeniec</span>, a machine learning researcher and engineer.
                     </p>
-                    <p class="hero__bio_section1">
-                    I am passionate about unsupervised learning, principled decision-making, causality and representation learning, and other things that make non-iid settings exciting.
+                    <p>
+                        I'm currently a PhD student at the University of Cambridge with David Krüger and Richard Turner.
+                        I'm working on topics relating to causality, causal representation learning and probabilistic modelling. I'm particularly interested in how we can learn and represent in our models the structure present in the data – whether it be causal models or symmetries.
+                    </p>
+                    <p>
+                        I've previously worked on topics ranging from generative modelling and Bayesian Optimisation in science applications at Microsoft to automated hyperparameter optimisation at Qualcomm.
                     </p>
                 </div>
+            </div>
+
+        </section>
+        <!-- PUBLICATIONS -->
+        <section class="mw7 center">
+
+            <h2 class="f2 ph3 ph0-l fw5">Publications</h2>
+            <article class="bt bb b--black-10">
+              <a class="db pv4 ph3 ph0-l no-underline black dim" href="https://arxiv.org/abs/2302.01170">
+                <div class="flex flex-column flex-row-ns">
+                  <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+                    <img src="images/timewarp.svg" class="db" alt="Illustration of a molecule folding.">
+                  </div>
+                  <div class="w-100 w-60-ns pl3-ns">
+                    <h1 class="f3 fw1 mt0 lh-title">Timewarp: Transferable Acceleration of Molecular Dynamics by Learning Time-Coarsened Dynamics
+                    </h1>
+                    <!-- <p class="f6 f5-l lh-copy">
+                        <span class="no-underline blue dim" href="#0">Testy test</span>
+                      The tech giant says it is ready to begin planning a quantum
+                      computer, a powerful cpu machine that relies on subatomic particles instead
+                      of transistors.
+                    </p> -->
+                    <p class="f6 lh-copy mv0">Leon Klein*, Andrew Y. K. Foong*, Tor Erlend Fjelde*, Bruno Mlodozeniec*, Marc Brockschmidt, Sebastian Nowozin, Frank Noé, Ryota Tomioka</p>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article class="bb b--black-10">
+              <a class="db pv4 ph3 ph0-l no-underline black dim" href="#0">
+                <div class="flex flex-column flex-row-ns">
+                  <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns center">
+                    <img src="images/partitioned-nets-convergence.svg" class="db center" alt="A neural networks with weights partitioned at random.">
+                  </div>
+                  <div class="w-100 w-60-ns pl3-ns">
+                    <h1 class="f3 fw1 mt0 lh-title">Hyperparameter Optimization through Neural Network Partitioning</h1>
+                    <!-- <p class="f6 f5-l lh-copy">
+                      A warehouse is a commercial building for storage of goods.
+                      Warehouses are used by manufacturers, importers, exporters,
+                      wholesalers, transport businesses, customs, etc. They are
+                      usually large plain buildings in industrial areas of cities,
+                      towns and villages.
+                    </p> -->
+                    <p class="f6 lh-copy mv0">Bruno Mlodozeniec, Matthias Reisser, Christos Louizos</p>
+                    <p class="tr f7 lh-copy mv1 fw1">ICLR 2023</p>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <article class="bb b--black-10">
+              <a class="db pv4 ph3 ph0-l no-underline black dim" href="https://arxiv.org/abs/1905.00076">
+                <div class="flex flex-column flex-row-ns">
+                  <div class="pr3-ns mb4 mb0-ns w-100 w-40-ns">
+                    <img src="images/ensemble-distribution-distillation.svg" class="db center" alt="Photo of a whale's tale coming crashing out of the water.">
+                  </div>
+                  <div class="w-100 w-60-ns pl3-ns">
+                    <h1 class="f3 fw1 mt0 lh-title">Ensemble Distribution Distillation</h1>
+                    <!-- <p class="f6 f5-l lh-copy">
+                      Whale is the common name for a widely distributed and diverse
+                      group of fully aquatic placental marine mammals. They are an
+                      informal grouping within the infraorder Cetacea, usually
+                      excluding dolphins and porpoises.
+                    </p> -->
+                    <p class="f6 lh-copy mv0">Andrey Malinin*, Bruno Mlodozeniec*, Mark Gales</p>
+                    <p class="tr f7 lh-copy mv1 fw1">ICLR 2020</p>
+                  </div>
+                </div>
+              </a>
+            </article>
+            <div style="font-size: 0.8em">
+                <p>*<span class="fw3">equal contributions</span></p>
             </div>
         </section>
+
+        <!-- EDUCATION/EXPERIENCE -->
+        <section class="mw7 center">
+
+            <h2 class="f2 ph3 ph0-l fw5">Education</h2>
+                <div class="flex flex-column flex-row-ns ">
+                    <div class=" w-100 w-50ns mr0 mr2-ns">
+                        <div class="flex">
+                            <div class="w-25 tc mt3 flex">
+                                <div class="w-50 mh1">
+                                    <img src="images/cambridge-logo.svg">
+                                </div>
+                                <div class="w-50">
+                                    <img src="images/mpi-logo.svg">
+                                </div>
+                            </div>
+                            <div class=" w-75 pl3 tl mt3">
+                                <h1 class="f4 mt0">
+                                    PhD <span class="fw5">in Advanced Machine Learning</span>
+                                </h1>
+                                <!-- <h1 class="f4 mt0"> -->
+                                <!-- </h1> -->
+                                <p class="f5 fw3">
+                                    University of Cambridge
+                                </p>
+                                <p class="f5 fw3 mt0">
+                                    Max Planck Institute for Intelligent Systems Tübingen
+                                </p>
+                                <p class="f6 fw2 avenir">
+                                    2023-
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="w-100 w-50ns athelas">
+                        <p class="mt3">
+                            I'm working towards a PhD under the supervision of Dr David Krueger and Professor Richard
+                            Turner. I'll be working on problems at the intersection of causality and probabilistic
+                            modelling.
+                        </p>
+
+                        <p>
+                            I'm particularly interested in understanding how we can learn structure present in the data
+                            (e.g. in the form of causal models), how such a structure should be represented, under what
+                            conditions it can be identified from given data, and in what settings it can aid
+                            generalisation.
+                        </p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="flex flex-column flex-row-ns ">
+                    <div class=" w-100 w-50ns mr0 mr2-ns">
+                        <div class="flex">
+                            <div class=" w-25 tc mt3">
+                                <img src="images/cambridge-logo.svg">
+                            </div>
+                            <div class=" w-75 pl3 tl mt3">
+                                <h1 class="f4 mt0">
+                                    MEng <span class="fw5">in Information and Computer Engineering</span>
+                                </h1>
+                                <p class="f5 fw3">
+                                    University of Cambridge
+                                </p>
+                                <p class="f6 fw2 avenir">
+                                    2016-2020
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="w-100 w-50ns athelas">
+                        <p class="mt3">
+                            I wrote a master thesis titled "Causal Inference: A Probabilistic Modelling Perspective"
+                            under the supervision of Professor Richard Turner.
+                        </p>
+                        <p>
+                            I got a first class performance in all years, ranking top 10%, 8%, and 7% in the graded
+                            years of my degree respectively.
+                        </p>
+                        <p>
+                            I co-founded, and then chaired, the Cambridge University Artificial Intelligence Society
+                            (then called Cambridge University Machine Intelligence Network).
+                        </p>
+                    </div>
+                </div>
+                </div>
+
+
+                <h1 class="f2 ph3 ph0-l fw5">Experience</h2>
+                    <div class="flex flex-column flex-row-ns ">
+                        <div class=" w-100 w-50ns mr0 mr2-ns">
+                            <div class="flex">
+                                <div class="w-25 tc mt3">
+                                    <div class="aspect-ratio aspect-ratio--1x1">
+                                        <img class="mv4" src="images/qualcomm-logo.svg">
+                                    </div>
+                                </div>
+                                <div class=" w-75 pl3 tl mt3 avenir">
+                                    <h1 class="f4 fw6 mt0">
+                                        Qualcomm
+                                    </h1>
+                                    <p class="f5 fw3">
+                                        Deep Learning Researcher
+                                    </p>
+                                    <p class="f6 fw2">
+                                        10/2021-12/2022
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="w-100 w-50ns">
+                            <p class="mt3">
+                                I worked in the Distributed Optimization team with Christos Louizos on improving domain
+                                generalisation and model selection. We were in particular interested in methods that can
+                                work well under the practical constraints of federated learning.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-column flex-row-ns avenir">
+                        <div class=" w-100 w-50ns mr0 mr2-ns">
+                            <div class="flex">
+                                <div class="w-25 tc mt3">
+                                    <div class="aspect-ratio aspect-ratio--1x1">
+                                        <img class="" src="images/microsoft-logo.svg">
+                                    </div>
+                                </div>
+                                <div class=" w-75 pl3 tl mt3">
+                                    <h1 class="f4 fw6 mt0">
+                                        Microsoft Research
+                                    </h1>
+                                    <p class="f5 fw3">
+                                        AI Resident
+                                    </p>
+                                    <p class="f6 fw2">
+                                        08/2020-08/2021
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="w-100 w-50ns athelas">
+                            <p class="mt3">
+                                I worked in the Distributed Optimization team with Christos Louizos on improving domain
+                                generalisation and model selection. We were in particular interested in methods that can
+                                work well under the practical constraints of federated learning.
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+
+
+        </section>
+    </article>
+
+
+
+
+    <div>Why isn't the font working</div>
+    <div class="pv4 ph3 tc">
+        <div class="link near-black hover-silver dib mh3 tc">
+            <span class="f6 db">Facebook</span>
+        </div>
+        <div class="link near-black hover-silver dib mh3 tc">
+            <span class="f6 db">GitHub</span>
+        </div>
+        <div class="link hover-silver near-black dib mh3 tc">
+            <span class="f6 db">Instagram</span>
+        </div>
+        <div class="link hover-silver near-black dib mh3 tc">
+            <span class="f6 db">Youtube</span>
+        </div>
     </div>
-    <!-- End of bio -->
-</div>
-<!-- More detailed bio -->
-<div class="wrapper">
-    <!-- Some links to relevant pages and resume -->
-    <div style='padding-top: 10px;'>
-        <ul class="third_party_links">
-            <li class="third_party_item"><a href="https://www.linkedin.com/in/bkmlodozeniec/" class="link--blue"><i
-                    class="fa fa-linkedin"></i> ://bkmlodozeniec</a></li>
-            <li class="third_party_item"><a href="https://github.com/BrunoKM/" class="link--blue"><i
-                    class="fa fa-github"></i> Github</a></li>
-            <li class="third_party_item"><a href="resources/resume.pdf" class="link--blue"><i class="fa fa-book"></i> Resume</a>
-            </li>
 
-        </ul>
-    </div>
-</div>
-
-<!-- EDUCATION section -->
-<div class="education">
-    <div class="wrapper">
-        <h3 class="section__title">Education</h3>
-        <!-- Cambridge -->
-        <div class="experience__item">
-            <div class="experience__pic">
-                <img src="images/cambridge-logo.svg">
-            </div>
-            <div class="experience__meta">
-                <h4 class="experience__main_title">University of Cambridge</h4>
-                <h4 class="experience__title">M.Eng. in Information Engineering</h4>
-                <small style="font-size: 13px;" class="experience__date">2016 - 2020</small>
-    <!--                 <small style="font-size: 13px; color: rgb(220, 220, 220);" class="experience__date">(current)</small> -->
-            </div>
-            <div class="experience__detail">
-                <ul>
-                    <li>Master thesis: "Causal Inference: a Probabilistic Modelling Perspective", supervised by Professor Richard Turner.</li>
-                    <li>Achieved first class performance in all years.</li>
-                    <li>Ranked top 10%, 8%, and 7% of the year each year respectively (last year unranked due to COVID-19).</li>
-                    <li>Co-founded and chaired the Cambridge University Artificial Intelligence society.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Experience Section -->
-<div class="experience">
-    <div class="wrapper">
-        <h3 class="section__title">Experience</h3>
-        <!-- Microsoft -->
-        <div class="experience__item" style="margin-bottom: 65px;">
-            <div class="experience__pic">
-                <img src="images/microsoft-logo.png">
-            </div>
-            <div class="experience__meta" style="padding-top: 3px;">
-                <h4 class="experience__main_title">AI Resident</h4>
-                <h4 class="experience__title">Microsoft Research Cambridge</h4>
-                <small style="font-size: 13px;" class="experience__date">09/2020 - 09/2021</small>
-            </div>
-            <div class="experience__detail" style="float: left">
-                <ul>
-                    <li>Project 1: Bayesian Optimization and probabilistic modelling for synthetic biology.</li>
-                    <li>Project 2: Reinforcement Learning for Compiler Optimisation.</li>
-                </ul>
-            </div>
-        </div>
-        <!-- Apple -->
-        <div class="experience__item" style="margin-bottom: 65px;">
-            <div class="experience__pic">
-                <img src="images/apple-logo.png">
-            </div>
-            <div class="experience__meta">
-                <h4 class="experience__main_title">Apple Software Engineering Intern</h4>
-                <h4 class="experience__title">Siri Team</h4>
-                <small style="font-size: 13px;" class="experience__date">06/2019 - 09/2019</small>
-            </div>
-            <div class="experience__detail" style="float: left">
-                <ul>
-                    <li> Worked as an ML Engineer on the Siri Voice Assistant.</li>
-                    <li> Worked on unsupervised learning methods for distributional drift deteciton.</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Cambridge UROP -->
-        <div class="experience__item">
-            <div class="experience__pic">
-                <img src="images/cambridge-logo.svg">
-            </div>
-            <div class="experience__meta">
-                <h4 class="experience__main_title">Cambridge Undergraduate Research</h4>
-                <h4 class="experience__title">Machine Intelligence Laboratory</h4>
-                <small style="font-size: 13px;" class="experience__date">08/2018 - 10/2018</small>
-            </div>
-            <div class="experience__detail" style="float: left">
-                <ul>
-                    <li>Worked with Professor Gales’ group on automated assessment ofr elevance of a spoken response to a given prompt in the context of language learning assessment.
-                    </li>
-                    <li>Investigated various methods for training neural networks capable of providing useful measures of uncertainty, including deep ensembles and deep <a href="https://arxiv.org/pdf/1802.10501.pdf" class="link link--dark">Prior Networks</a>.
-                    </li>
-                    <li>
-                      Investigated Ensemble Distribution Distillation using Prior Networks as a novel method for ensemble distillation that retains ensemble’s performance on uncertainty-related tasks.
-                    </li>
-                    <li> See the paper: <a href="https://arxiv.org/abs/1905.00076"
-                                                                   class="link link--dark">Ensemble Distribution Distillation</a>.
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Harvard -->
-        <div class="experience__item">
-            <div class="experience__pic">
-                <img src="images/harvard-logo.png">
-            </div>
-            <div class="experience__meta">
-                <h4 class="experience__main_title">Harvard SEAS Internship</h4>
-                <h4 class="experience__title">Connectomics Research</h4>
-                <small style="font-size: 13px;" class="experience__date">07/2018 - 08/2018</small>
-            </div>
-            <div class="experience__detail">
-                <ul>
-                    <li>Worked on developing methods for statistical analysis of networks representing the brain
-                        connectome.
-                    </li>
-                    <li>Prototyped deep learning models for the purpose of identyfing repeating structural
-                        components within the brain network (graph motifs).
-                    </li>
-                    <li><a href="https://vcg.seas.harvard.edu/projects" class="link link--dark">VCG's
-                        Connectomics Project Website</a>.
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- Cisco -->
-        <div class="experience__item">
-            <div class="experience__pic">
-                <img src="images/cisco-logo.png">
-            </div>
-            <div class="experience__meta">
-                <h4 class="experience__main_title">Cisco Machine Learning Internship</h4>
-                <h4 class="experience__title">Cisco Webex Teams</h4>
-                <small style="font-size: 13px;" class="experience__date">07/2017 - 08/2017</small>
-            </div>
-            <div class="experience__detail">
-                <ul>
-                    <li>Worked on wake-word detection for the Cisco Webex range of products.</li>
-                    <li>Trained and applied multiple deep learning architectures to the problem of
-                        keyword spotting.
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="experience__callout" style="margin-top: 150px;">
-            <a href="mailto:bkmlodozeniec@gmail.com" class="button--secondary">Contact me</a>
-        </div>
-    </div>
-</div>
-<footer class="footer"><span style="font-weight: bolder;">Email: </span><span
-        style="font-weight: lighter;">bk<span>m</span>lodoz<span>eni</span>e<span>c at gmail<i>.</i>co</span>m</span>
-</footer>
 </body>
+
 </html>
