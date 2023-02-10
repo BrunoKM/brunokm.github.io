@@ -44,3 +44,19 @@ html {
     height: 0;
     padding-bottom: 1000%;
 }
+
+.icon-scholar {
+    content: url('images/google-scholar.svg');
+    height: 0.8em;
+    width: auto;
+  }
+
+  .invert-colors {
+    -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+    filter: invert(100%);
+  }
+
+  .huerotate-invert {
+    -webkit-filter: hue-rotate(90deg) invert(100%);
+    filter: grayscale(80%) hue-rotate(180deg) invert(100%);
+  }
