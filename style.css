@@ -51,12 +51,7 @@ html {
     width: auto;
   }
 
-  .invert-colors {
-    -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
-    filter: invert(100%);
-  }
-
-  .huerotate-invert {
-    -webkit-filter: hue-rotate(90deg) invert(100%);
-    filter: grayscale(80%) hue-rotate(180deg) invert(100%);
+  .epistemic-svg-filter {
+    -webkit-filter: grayscale(100%) invert(100%);
+    filter: grayscale(100%) invert(100%);
   }
