@@ -71,7 +71,7 @@ var mouse_img_coords = {
   x: 0,
   y: 0
 }
-unc_img.addEventListener('mousemove', function(event) {
+function updateMouseImgCoords(event) {
   var rect = event.target.getBoundingClientRect();
   var x = event.clientX - rect.left; //x position within the element.
   var y = event.clientY - rect.top;  //y position within the element.
@@ -89,7 +89,8 @@ unc_img.addEventListener('mousemove', function(event) {
   } else {
     mouse_img_coords.y = y / unc_img.height;
   }
-})
+
+}
 
 
 function Circle(x, y, radius, color) {
@@ -194,10 +195,11 @@ function loadJSON(callback) {
 document.onload = loadJSON(function(response) {
   // Parse JSON string into object
     var dataJson = JSON.parse(response);
-    $(window).resize();
-    $(canvas).resize();
 
     var triangle = new Triangle(canvas.width * 0.1, canvas.width * 0.15, 0.8 * canvas.width, dataJson, 4);
+
+    triangle.update();
+    triangle.draw();
 
     window.addEventListener('resize', function(){
       triangle.x = unc_img.width * 0.1;
@@ -214,11 +216,10 @@ document.onload = loadJSON(function(response) {
       triangle.mouseOverImg = false;
     })
 
-    function animate() {
-      requestAnimationFrame(animate);
+    unc_img.addEventListener('mousemove', function(event) {
+      updateMouseImgCoords(event);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       triangle.update();
       triangle.draw();
-    }
-    animate();
+    })
 });
