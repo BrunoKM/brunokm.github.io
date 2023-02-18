@@ -148,12 +148,40 @@ function Triangle(x, y, width, dataArr, circleRadius) {
     }
   }
 
-  this.update = function() {
-    dataPointIdx = this.dataRes * Math.floor(mouse_img_coords.y * this.dataRes) + Math.floor(mouse_img_coords.x * this.dataRes);
+  this.getTrianglePositionForDataPointIdx = function (dataPointIdx, i) {
+    // Given an index into data array, get the x-y coordinates in the canvas for where to plot the circle
     dataPoint = this.dataArr[dataPointIdx];
+    var new_x = this.x + dataPoint[i][0] * this.width;
+    var new_y = this.y + this.height - dataPoint[i][1] * this.width;
+    return [new_x, new_y];
+  }
+
+  this.update = function() {
+    // Do bi-linear interpolation:
+    xIdxUnquantised = mouse_img_coords.x * this.dataRes;
+    yIdxUnquantised = mouse_img_coords.y * this.dataRes;
+    xIdxLower = Math.floor(xIdxUnquantised);
+    yIdxLower = Math.floor(yIdxUnquantised);
+    xIdxUpper = Math.ceil(xIdxUnquantised);
+    yIdxUpper = Math.ceil(yIdxUnquantised);
+    if (xIdxLower == xIdxUpper) {
+      xIdxUpper += 1;
+    }
+    if (yIdxLower == yIdxUpper) {
+      yIdxUpper += 1;
+    }
+
     for (var i = 0; i < this.circlesArr.length; i++) {
-      var new_x = this.x + dataPoint[i][0] * this.width;
-      var new_y = this.y + this.height - dataPoint[i][1] * this.width;
+      new_x = 0;
+      new_y = 0;
+      [[xIdxLower, yIdxLower], [xIdxLower, yIdxUpper], [xIdxUpper, yIdxLower], [xIdxUpper, yIdxUpper]].forEach(
+        ([xIdx, yIdx]) => {
+          scaling_constant = (1- Math.abs(xIdxUnquantised - xIdx)) * (1 - Math.abs(yIdxUnquantised - yIdx));
+          [new_x_delta, new_y_delta] = this.getTrianglePositionForDataPointIdx(this.dataRes * yIdx + xIdx, i);
+          new_x += scaling_constant * new_x_delta;
+          new_y += scaling_constant * new_y_delta;
+        }
+      );
       this.circlesArr[i].updatePos(new_x, new_y);
     }
     // Update the rim
