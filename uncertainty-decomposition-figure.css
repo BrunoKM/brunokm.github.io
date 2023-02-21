@@ -1,0 +1,24 @@
+:root {
+  --accent-color: rgba(10, 160, 190, 1.0);
+  --accent-color-darker: rgba(8, 130, 150, 1.0);
+}
+.plotSelectionButtons li {
+    display: inline;
+    float: left;
+    width: 28%;
+    margin-left: 2%;
+    margin-right: 2%;
+    cursor: pointer;
+}
+  
+  .plotSelectionButtons .selected {
+    color: var(--accent-color-darker);
+    cursor: pointer;
+  }
+  
+  .plotSelectionButtons ul {
+    list-style: none;
+    margin-left: 5%;
+    line-height: 1.8;
+  }
+  

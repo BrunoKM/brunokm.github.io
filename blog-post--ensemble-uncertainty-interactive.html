@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="images/tab_icon.svg">
+    <title>Bruno K.M. - Publications</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="uncertainty-decomposition-figure.css">
+    <!-- <link rel="stylesheet" href="scribbler-projects.css"> -->
+
+    <script src="json/path_small.json" id="ensembleProbsJson"></script>
+    <script src="js/include_footer.js"></script>
+</head>
+
+<body class="">
+    <section class="mw6-ns center mh2 mt4">
+            <h1 class="bl pl2 bw2">
+                Visualising uncertainty decomposition in Deep Ensembles
+
+            </h1>
+            <!-- Story: In many settings, it is important to distringuish between aleatoric uncertainty-->
+            <h2>
+                Different types of uncertainty: a quick primer
+            </h2>
+            <p>
+                It is broadly accepted that obtaining reliable measures of uncertainty from a machine learning models is high on the list of desirables, especially in high-risk applications. In many settings, however, it is also important to distinguish between different <i>kinds</i> of uncertainty.
+            </p>
+            <p>
+                <strong>Data uncertainty</strong>, or aleatoric uncertainty, is the irreducible uncertainty in predictions that arises due to the complexity, noise and class-overlap in the data. For instance, if the algorithm tasked with classifying animals observes an input image with a silhouette so distant it is practically impossible to discern whether it depicts a cat or a dog, that would be an example of data uncertainty.
+            </p>
+            <p>
+                <strong>Knowledge uncertainty</strong>, or epistemic uncertainty, is uncertainty due to a lack of understanding or knowledge on the part of the model regarding the current input for which the model is making a prediction. This form of uncertainty arises when multiple hypotheses consistent with the training data give conflicting prediction on the test data. It <i>usually</i> occurs when the test input is unlike inputs the model has seen before.  For instance, knowledge uncertainty might arise if a self-driving algorithm was trained exclusively on video input in daylight conditions, and is applied to footage taken at night.
+            </p>
+            <p>
+                Distinguishing between the two types of uncertainty tells you how you to deal with the uncertain prediction. A high epistemic uncertainty on an example tells you that you can improve the model's confidence on these kind of inputs by collecting more data in that region of the input space. For instance, you can improve a self-driving object detection model's predictions at night by collecting and labelling more data of night-driving. In deployment, high epistemic uncertainty tells you that the model's predictions might not be trustworthy for this particular input. On the other hand, if aleatoric uncertainty is high, it suggests that collecting more data will not necessarily help overcome it; changing <it>how</it> the data is collected might, however. For example, using a higher resolution sensor in a camera might help the machine learning model distinguish between objects where it would not have been possible with more blurry, lower-resolution images.
+            </p>
+            <h2>
+                Visualising different types of uncertainty for a deep ensemble
+            </h2>
+            <p>
+                To illustrate the ability of neural network (NN) ensembles to capture different kinds of uncertainty, we can visualise the predictions of a <a class="link blue dim" href="https://arxiv.org/abs/1612.01474">deep ensemble</a> of 20 neural networks on a 3-class toy dataset shown below. Each colour in the plot corresponds to one of the 3 classes.
+            </p>
+            <div class="center mw5"><img src="images/dataset_spiral.png" id="dataset_spiral"></div>
+            <p>
+                The figure below shows the total, knowledge (epistemic) and data (aleatoric) uncertainties on the left, and interactively displays the predictions from each of the 20 models from the ensemble as a point on a simplex on the right. For example, a point in the top corner of the simplex (triangle) implies 100% confidence in that class, whereas a point residing in the middle of the simplex represents the model being 33.3…% confident in each of the three classes.
+            </p>
+            </section>
+            <!-- Fancy UCNERTAINTY FIGURE -->
+    <section class="mw7-ns center mh2">
+            <div id='uncertainty_selection_buttons' class='plotSelectionButtons avenir'>
+                <ul class="">
+                  <li class='unc-img-selector-button selected dim tc ba br2 mb2' id='tot_unc_button'>Total Uncertainty</li>
+                  <li class='unc-img-selector-button dim tc ba br2 mb2' id='data_unc_button'>Data Uncertainty</li>
+                  <li class='unc-img-selector-button dim tc ba br2 mb2' id='know_unc_button'>Knowledge Uncertainty</li>
+                </ul>
+              </div>
+              <div id="unc_figure" style="
+                align-items: left">
+                  <img src="images/total_uncertainty.png" id="uncertainty_pic" style="border-radius: 4px; width:40%; margin-left: 4%; margin-right: 4%;">
+                  <canvas id="canvas" style="width:40%"></canvas>
+              </div>
+              
+    </section>
+    <section class="mw6-ns center mh2">
+            <p>
+                In one of my previous works, we tried distilling an ensemble of models in such a way that you can still separate knowledge and data uncertainty in the student model. You can check-out this work here:
+            </p>
+            <div style="text-align: center; margin-top:30px">
+                <a style="text-align: center; margin-right: 10px;" href="https://arxiv.org/abs/1905.00076"
+                   class="link blue dim"><i class="fa fa-book"></i> Ensemble Distribution Distillation Paper</a>
+            </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="js/unc_figure.js"></script>
+</body>
+
+</html>
