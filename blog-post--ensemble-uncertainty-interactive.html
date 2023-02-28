@@ -27,16 +27,16 @@
                 Different types of uncertainty: a quick primer
             </h2>
             <p>
-                It is broadly accepted that obtaining reliable measures of uncertainty from a machine learning models is high on the list of desirables, especially in high-risk applications. In many settings, however, it is also important to distinguish between different <i>kinds</i> of uncertainty.
+                Obtaining reliable measures of uncertainty for a machine learning model's predictions is high on the list of desirables, especially in high-risk applications. In many settings, however, it is also important to distinguish between different <i>kinds</i> of uncertainty:
             </p>
             <p>
                 <strong>Data uncertainty</strong>, or aleatoric uncertainty, is the irreducible uncertainty in predictions that arises due to the complexity, noise and class-overlap in the data. For instance, if the algorithm tasked with classifying animals observes an input image with a silhouette so distant it is practically impossible to discern whether it depicts a cat or a dog, that would be an example of data uncertainty.
             </p>
             <p>
-                <strong>Knowledge uncertainty</strong>, or epistemic uncertainty, is uncertainty due to a lack of understanding or knowledge on the part of the model regarding the current input for which the model is making a prediction. This form of uncertainty arises when multiple hypotheses consistent with the training data give conflicting prediction on the test data. It <i>usually</i> occurs when the test input is unlike inputs the model has seen before.  For instance, knowledge uncertainty might arise if a self-driving algorithm was trained exclusively on video input in daylight conditions, and is applied to footage taken at night.
+                <strong>Knowledge uncertainty</strong>, or epistemic uncertainty, is uncertainty due to a lack of understanding or knowledge on the part of the model regarding the current input for which the model is making a prediction. This form of uncertainty arises when multiple hypotheses consistent with the training data give conflicting predictions on the test data. It usually occurs when the test input is unlike inputs the model has seen before.  For instance, knowledge uncertainty might arise if a self-driving algorithm was trained exclusively on video input in daylight conditions, and is applied to footage taken at night.
             </p>
             <p>
-                Distinguishing between the two types of uncertainty tells you how to deal with the uncertain prediction. A high epistemic uncertainty on an example tells you that you can improve the model's confidence on these kind of inputs by collecting more data in that region of the input space. For instance, you can improve a self-driving object detection model's predictions at night by collecting and labelling more data of night-driving. In deployment, high epistemic uncertainty tells you that the model's predictions might not be trustworthy for this particular input. On the other hand, if aleatoric uncertainty is high, it suggests that collecting more data will not necessarily help overcome it; changing <it>how</it> the data is collected might, however. For example, using a higher resolution sensor in a camera might help the machine learning model distinguish between objects where it would not have been possible with more blurry, lower-resolution images.
+                Distinguishing between the two types of uncertainty tells you how to deal with the uncertain prediction. A high epistemic uncertainty on an example tells you that you can improve the model's confidence on these kinds of inputs by collecting more data in that region of the input space. For instance, you can improve a self-driving object detection model's predictions at night by collecting and labelling more data of night-driving. In deployment, high epistemic uncertainty tells you that the model's predictions might not be trustworthy for this particular input. On the other hand, if aleatoric uncertainty is high, it suggests that collecting more data will not necessarily help overcome it; changing <it>how</it> the data is collected might, however. For example, using a higher resolution sensor in a camera might help the machine learning model distinguish between objects where it would not have been possible with more blurry, or lower-resolution, images.
             </p>
             <h2>
                 Visualising different types of uncertainty for a deep ensemble
@@ -46,7 +46,7 @@
             </p>
             <div class="center mw5"><img src="images/dataset_spiral.png" id="dataset_spiral"></div>
             <p>
-                The figure below shows the total, knowledge (epistemic) and data (aleatoric) uncertainties on the left, and interactively displays the predictions from each of the 20 models from the ensemble as a point on a simplex on the right. For example, a point in the top corner of the simplex (triangle) implies 100% confidence in that class, whereas a point residing in the middle of the simplex represents the model being 33.3…% confident in each of the three classes.
+                The figure below shows the total, knowledge (epistemic) and data (aleatoric) uncertainties on the left, and interactively displays the predictions from each of the 20 models from the ensemble as a point on a simplex on the right. For example, a point in the top corner of the simplex (triangle) implies 100% confidence in that class, whereas a point in the middle of the simplex represents the model being ~33.3% confident in each of the three classes.
             </p>
             </section>
             <!-- Fancy UCNERTAINTY FIGURE -->
@@ -67,7 +67,7 @@
     </section>
     <section class="mw6-ns center mh2">
             <p>
-                In one of my previous works, we tried distilling an ensemble of models in such a way that you can still separate knowledge and data uncertainty in the student model. You can check-out this work here:
+                In one of my previous works, we tried distilling an ensemble of models in such a way that you can still separate knowledge and data uncertainty in the student model. You can check it out here:
             </p>
             <div style="text-align: center; margin-top:30px">
                 <a style="text-align: center; margin-right: 10px;" href="https://arxiv.org/abs/1905.00076"
