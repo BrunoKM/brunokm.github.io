@@ -22,7 +22,7 @@ function initializeOrModifyAsciiArtDiffusion() {
     const element = document.getElementById('asciiArtDiffusionInSix');
     // console.log(typeof element.textContent);
 
-    element.innerText = originalContentArray;
+    element.innerText = originalContentArray.join('\n');
 
     // let contentArray = element.textContent.split("\n");
     function flipCharacter() {
