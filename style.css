@@ -55,3 +55,11 @@ html {
     -webkit-filter: grayscale(100%) invert(100%);
     filter: grayscale(100%) invert(100%);
   }
+
+  #profile-cover {
+    background-image: url(images/aabi-presentation-stripes-fixed-cropped-left.png), url(images/aabi-presentation-stripes-fixed-cropped-left--compressed.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center center, center center;
+    background-attachment: fixed, fixed;
+    background-size: cover, cover;
+  }
