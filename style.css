@@ -58,9 +58,10 @@ html {
 }
 
 #profile-cover {
-    background-image: url(images/aabi-presentation-stripes-fixed-cropped-left.png), url(images/aabi-presentation-stripes-fixed-cropped-left--compressed.jpg);
-    background-repeat: no-repeat, no-repeat;
-    background-position: center center, center center;
-    background-attachment: fixed, fixed;
-    background-size: cover, cover;
+    background-color: rgb(250, 248, 245);
+    background-image: url(images/aabi-presentation-stripes-fixed-cropped-wide.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top right;
+    background-size: auto min(100%, 55em);
 }
